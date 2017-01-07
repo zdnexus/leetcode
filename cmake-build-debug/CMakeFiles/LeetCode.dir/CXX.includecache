@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Administrator/ClionProjects/LeetCode/3.LongestSubstringWithoutRepeatingCharacters.cpp
+iostream
+-
+string
+-
+vector
+-
+math.h
+-
+
