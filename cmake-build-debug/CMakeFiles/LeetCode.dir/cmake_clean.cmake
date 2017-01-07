@@ -1,9 +1,7 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/LeetCode.dir/3.LongestSubstringWithoutRepeatingCharacters.cpp.obj"
+  "CMakeFiles/LeetCode.dir/2.AddTwoNumbers.cpp.o"
   "LeetCode.pdb"
-  "LeetCode.exe"
-  "LeetCode.exe.manifest"
-  "libLeetCode.dll.a"
+  "LeetCode"
 )
 
 # Per-language clean rules from dependency scanning.

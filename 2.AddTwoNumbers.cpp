@@ -2,7 +2,6 @@
 // Created by Administrator on 2017/1/4 0004.
 //
 #include<iostream>
-#include<malloc.h>
 #include "cpp_arrToList.h"
 
 using namespace std;
@@ -178,7 +177,7 @@ public:
 
 int main() {
     Solution s;
-    int arr1[3] = {2, 4, 2};
+    int arr1[4] = {2, 4, 2, 3};
     int arr2[4] = {5, 6, 7, 9};
     struct ListNode *l1 = arrToList(arr1, sizeof(arr1) / sizeof(arr1[0]));
     struct ListNode *l2 = arrToList(arr2, sizeof(arr2) / sizeof(arr2[0]));
@@ -189,5 +188,6 @@ int main() {
     printList(s.addTwoNumbers_1v4(l1, l2));
     printList(s.addTwoNumbers_2(l1, l2, 0));
     printList(s.addTwoNumbers_3(l1, l2));
+
     return 0;
 }

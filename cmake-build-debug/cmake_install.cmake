@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/Administrator/ClionProjects/LeetCode
+# Install script for directory: /Users/zhongdong/Downloads/Code/LeetCode
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/LeetCode")
+  set(CMAKE_INSTALL_PREFIX "/usr/local")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -35,5 +35,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/Administrator/ClionProjects/LeetCode/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/zhongdong/Downloads/Code/LeetCode/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
