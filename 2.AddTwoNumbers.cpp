@@ -1,5 +1,5 @@
 //
-// Created by Administrator on 2017/1/4 0004.
+// Created by 钟东 on 2017/1/4 0004.
 //
 #include<iostream>
 #include "cpp_arrToList.h"
@@ -38,7 +38,7 @@ public:
                 int sum = listExtra->val + numExtra;
                 struct ListNode *newNode = new ListNode(sum % 10);
                 numExtra = sum / 10;
-                currentNode->next = newNode;
+                currentNode->next = newNode;//这里的currentNode绝对不是空指针
                 currentNode = newNode;
                 listExtra = listExtra->next;
             }
