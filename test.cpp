@@ -4,14 +4,13 @@
 #include<iostream>
 #include<string>
 
+
 using namespace std;
 
 int main() {
-    string s = "abc";
-    cout << s << endl;
+    string s = "";
 
-    char p = s[0];
-    cout << p << endl;
+    cout << s.substr(0, 10) << endl;
 
     return 0;
 }
