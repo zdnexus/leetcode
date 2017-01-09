@@ -1,3 +1,0 @@
-"C:\Program Files (x86)\JetBrains\CLion 2016.3.1\bin\cmake\bin\cmake.exe" -E remove -f CMakeFiles\LeetCode.dir/objects.a
-C:\MinGW\bin\ar.exe cr CMakeFiles\LeetCode.dir/objects.a @CMakeFiles\LeetCode.dir\objects1.rsp
-C:\MinGW\bin\g++.exe  -g   -Wl,--whole-archive CMakeFiles\LeetCode.dir/objects.a -Wl,--no-whole-archive  -o LeetCode.exe -Wl,--out-implib,libLeetCode.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\LeetCode.dir\linklibs.rsp

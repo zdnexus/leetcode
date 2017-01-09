@@ -6,7 +6,6 @@
 #define LEETCODE_CPP_ARRTOLIST_H
 
 #include<iostream>
-#include<malloc.h>
 
 using namespace std;
 
