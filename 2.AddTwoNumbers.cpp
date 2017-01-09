@@ -149,7 +149,7 @@ public:
             newNode->val = numExtra;
             newNode->next = NULL;
         } else {
-            free(newNode);
+            delete newNode;
             return NULL;
         }
         return newNode;
