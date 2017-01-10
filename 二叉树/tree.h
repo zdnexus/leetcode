@@ -5,17 +5,21 @@
 #ifndef LEETCODE_TREE_H
 #define LEETCODE_TREE_H
 
-#include <iostream>
+#include<iostream>
+#include<string.h>
+#include<stdlib.h>
 
 using namespace std;
 
-#define MAXITEMS 10
+#define MAX_ITEMS 10
 
+//  节点数据
 typedef struct item {
     char petName[20];
     char petKind[20];
 } Item;
 
+//  节点
 typedef struct node {
     Item item;
     struct node *left;
@@ -24,11 +28,13 @@ typedef struct node {
     node(Item item) : item(item), left(NULL), right(NULL) {}
 } Node;
 
+//  树根节点
 typedef struct tree {
     Node *root;
     int size;
 } Tree;
 
+//  搜索节点
 typedef struct pair {
     Node *parent;
     Node *child;
@@ -47,7 +53,7 @@ bool TreeIsEmpty(const Tree *pTree) {
 
 //  树是否为满
 bool TreeIsFull(const Tree *pTree) {
-    return (pTree->size == MAXITEMS);
+    return (pTree->size == MAX_ITEMS);
 }
 
 //  比较左边的节点
@@ -55,8 +61,8 @@ bool ToLeft(const Item *item1, const Item *item2) {
     int comp;
     if ((comp = strcmp(item1->petName, item2->petName)) < 0) {
         return true;
-    } else if (comp == 0 && 
-            strcmp(item1->petKind, item2->petKind) < 0) {
+    } else if (comp == 0 &&
+               strcmp(item1->petKind, item2->petKind) < 0) {
         return true;
     } else {
         return false;
@@ -69,7 +75,7 @@ bool ToRight(const Item *item1, const Item *item2) {
     if ((comp = strcmp(item1->petName, item2->petName)) > 0) {
         return true;
     } else if (comp == 0 &&
-            strcmp(item1->petKind, item2->petKind) > 0) {
+               strcmp(item1->petKind, item2->petKind) > 0) {
         return true;
     } else {
         return false;
@@ -121,7 +127,7 @@ bool AddItem(const Item *item, Tree *pTree) {
         return false;
     }
     if (SeekItem(item, pTree).child != NULL) {
-        cout << "Same item." << endl;
+        cout << "Seek same item." << endl;
         return false;
     }
     ++pTree->size;
