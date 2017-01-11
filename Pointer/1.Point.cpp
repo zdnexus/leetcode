@@ -64,21 +64,19 @@ void A() {
     //  指向指针 p 的指针 pp
     cout << "指向指针 p 的指针 pp" << endl;
     int **pp = &p;
-    p = &y;
     *pp = &x;
     **pp = 11;
     cout << "x:     " << x << endl;
-    cout << "y:     " << y << endl;
     cout << "*p:    " << *p << endl;
 
 
 
     //  改变 p 指针指向地址，指向 int 的 p 指针指向 z（const int）///
-//    const int z = 100;
+    const int z = 100;
 //    p = &z;
 }
 
-//  const int *p -> int/const int
+//  const int *p -> int/const int 指向常量的指针
 void B() {
     //  指向 const int 的指针 p 指向 x（int）
 //    cout << "指向 const int 的指针 p 指向 x（int）" << endl;
@@ -142,7 +140,7 @@ void B() {
 //    z = 102;
 }
 
-//  int *const p -> int/const int
+//  int *const p -> int/const int 常量指针
 void C() {
     //  指向 int 的 const 指针 p 指向 x（int）
     cout << "指向 int 的 const 指针 p 指向 x（int）" << endl;
