@@ -8,7 +8,7 @@ using namespace std;
 
 class Solution {
 public:
-    // 方法一
+    //方法一
     struct ListNode *addTwoNumbers(struct ListNode *l1, struct ListNode *l2) {
         if (l1 == NULL && l2 == NULL) {
             return NULL;
@@ -18,7 +18,56 @@ public:
             return l1;
         } else {
             struct ListNode *list = NULL;//链表表头
-            struct ListNode *currentNode = NULL;//链表追踪节点
+            struct ListNode *currentNode = NULL;//追踪节点
+            int numExtra = 0;//相加超出10的数字
+            while (l1 && l2) {
+                int sum = l1->val + l2->val + numExtra;
+                struct ListNode *newNode = new ListNode(sum % 10);
+                numExtra = sum / 10;
+                if (list == NULL) {
+                    list = newNode;
+                } else {
+                    currentNode->next = newNode;
+                }
+                currentNode = newNode;
+                l1 = l1->next;
+                l2 = l2->next;
+            }
+            while (l1) {
+                int sum = l1->val + numExtra;
+                struct ListNode *newNode = new ListNode(sum % 10);
+                numExtra = sum / 10;
+                currentNode->next = newNode;//这里的currentNode绝对不是空指针
+                currentNode = newNode;
+                l1 = l1->next;
+            }
+            while (l2) {
+                int sum = l2->val + numExtra;
+                struct ListNode *newNode = new ListNode(sum % 10);
+                numExtra = sum / 10;
+                currentNode->next = newNode;//这里的currentNode绝对不是空指针
+                currentNode = newNode;
+                l2 = l2->next;
+            }
+            if (numExtra) {
+                struct ListNode *newNode = new ListNode(numExtra);
+                currentNode->next = newNode;
+            }
+            return list;
+        }
+    };
+
+    //方法一(v2)
+    struct ListNode *addTwoNumbers_1v2(struct ListNode *l1, struct ListNode *l2) {
+        if (l1 == NULL && l2 == NULL) {
+            return NULL;
+        } else if (l1 == NULL) {
+            return l2;
+        } else if (l2 == NULL) {
+            return l1;
+        } else {
+            struct ListNode *list = NULL;//链表表头
+            struct ListNode *currentNode = NULL;//追踪节点
             int numExtra = 0;//相加超出10的数字
             while (l1 && l2) {
                 int sum = l1->val + l2->val + numExtra;
@@ -50,10 +99,10 @@ public:
         }
     };
 
-    // 方法一(v2)
-    struct ListNode *addTwoNumbers_1v2(struct ListNode *l1, struct ListNode *l2) {
+    //方法一(v3)
+    struct ListNode *addTwoNumbers_1v3(struct ListNode *l1, struct ListNode *l2) {
         struct ListNode *list = NULL;//链表表头
-        struct ListNode *currentNode = NULL;//链表追踪节点
+        struct ListNode *currentNode = NULL;//追踪节点
         int numExtra = 0;//相加超出10的数字
         while (l1 || l2) {
             int sum = 0;
@@ -84,10 +133,10 @@ public:
         return list;
     };
 
-    // 方法一(v3)
-    struct ListNode *addTwoNumbers_1v3(struct ListNode *l1, struct ListNode *l2) {
+    //方法一(v4)
+    struct ListNode *addTwoNumbers_1v4(struct ListNode *l1, struct ListNode *l2) {
         struct ListNode *list = NULL;//链表表头
-        struct ListNode *currentNode = NULL;//链表追踪节点
+        struct ListNode *currentNode = NULL;//追踪节点
         int numExtra = 0;//相加超出10的数字
         while (l1 || l2) {
             int sum = (l1 ? l1->val : 0) + (l2 ? l2->val : 0) + numExtra;
@@ -109,10 +158,10 @@ public:
         return list;
     };
 
-    // 方法一(v4)
-    struct ListNode *addTwoNumbers_1v4(struct ListNode *l1, struct ListNode *l2) {
+    //方法一(v5)
+    struct ListNode *addTwoNumbers_1v5(struct ListNode *l1, struct ListNode *l2) {
         struct ListNode *list = NULL;//链表表头
-        struct ListNode *currentNode = NULL;//链表追踪节点
+        struct ListNode *currentNode = NULL;//追踪节点
         int numExtra = 0;//相加超出10的数字
         while (l1 || l2 || numExtra) {
             int sum = (l1 ? l1->val : 0) + (l2 ? l2->val : 0) + numExtra;
@@ -130,7 +179,7 @@ public:
         return list;
     }
 
-    // 方法二
+    //方法二
     struct ListNode *addTwoNumbers_2(struct ListNode *l1, struct ListNode *l2, int numExtra) {
         struct ListNode *newNode = new ListNode(0);
         if (l1 && l2) {
@@ -155,7 +204,7 @@ public:
         return newNode;
     }
 
-    // 方法三
+    //方法三
     struct ListNode *addTwoNumbers_3(struct ListNode *l1, struct ListNode *l2) {
         if (l1 == NULL && l2 == NULL) {
             return NULL;
@@ -186,6 +235,7 @@ int main() {
     printList(s.addTwoNumbers_1v2(l1, l2));
     printList(s.addTwoNumbers_1v3(l1, l2));
     printList(s.addTwoNumbers_1v4(l1, l2));
+    printList(s.addTwoNumbers_1v5(l1, l2));
     printList(s.addTwoNumbers_2(l1, l2, 0));
     printList(s.addTwoNumbers_3(l1, l2));
 

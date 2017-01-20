@@ -14,7 +14,7 @@ public:
         for (int i = 0; i < s.length(); ++i) {
             int left = i - 1;
             int right = i;
-            while (left >= 0 && right <= s.length() - 1) {
+            while (left >= 0 && right < s.length()) {
                 if (s[left] == s[right]) {
                     palindrome = true;
                     if (right - left + 1 > subLen) {
@@ -23,7 +23,13 @@ public:
 //                        cout << subStar << " & " << subLen << endl;
                     }
                 }
-                if (right + 1 <= s.length() - 1 && s[left] == s[right + 1]) {
+                --left;
+                ++right;
+            }
+            left = i - 1;
+            right = i + 1;
+            while (left >= 0 && right < s.length()) {
+                if (s[left] == s[right]) {
                     palindrome = true;
                     if (right - left + 1 > subLen) {
                         subLen = right - left + 1;
@@ -46,6 +52,7 @@ public:
 int main() {
     Solution s;
 
+    cout << s.longestPalindrome("abcd") << endl;
     cout << s.longestPalindrome("abcb") << endl;
     cout << s.longestPalindrome("aaaa") << endl;
     cout << s.longestPalindrome("aaa") << endl;
