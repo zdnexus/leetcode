@@ -15,11 +15,6 @@ void printArray(int *arr, int length) {
 
 class Solution {
 private:
-    typedef struct node {
-        int n;
-        struct node *next;
-    } Node;
-
     static void swap(int *a, int *b) {
         if (a != b) {
             *a = *a ^ *b;
