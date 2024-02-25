@@ -3,7 +3,7 @@
 //
 
 #include <iostream>
-#include "swap.h"
+#include "Swap.h"
 
 using namespace std;
 
@@ -11,7 +11,7 @@ class Solution {
 public:
     //  桶排序
     static void BucketSort(int *arr, int length) {
-        if (checkPoint(arr)) {
+        if (pointIsNull(arr)) {
             return;
         }
 

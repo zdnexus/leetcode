@@ -3,25 +3,24 @@
 //
 
 #include <iostream>
-#include "swap.h"
+#include "Swap.h"
 
 using namespace std;
 
+//  冒泡排序
+//  平均时间复杂度：n^2，最好情况：n，最坏情况：n^2，
+//  空间复杂度：1，
+//  稳定排序
 class Solution {
 public:
-    //  冒泡排序
-    //  平均时间复杂度：n^2，最好情况：n，最坏情况：n^2，
-    //  空间复杂度：1，
-    //  稳定排序
     static void BubbleSort(int *arr, int length) {
-        if (checkPoint(arr)) {
+        if (pointIsNull(arr)) {
             return;
         }
 
         for (int i = 0; i < length - 1; i++) {
             bool flag = false;
-
-            for (int j = 0; j + 1 < length - i; j++) {
+            for (int j = 0; j + 1 + i < length; j++) {
                 if (arr[j] > arr[j + 1]) {
                     swap(arr + j, arr + j + 1);
                     flag = true;
@@ -39,10 +38,12 @@ int main() {
     int arr[10];
     int length = sizeof(arr) / sizeof(arr[0]);
 
+    cout << length << endl;
+
     cinArr(arr, length);
-    printArray(arr, length);
-    s.BubbleSort(arr, length);
-    printArray(arr, length);
+//    printArray(arr, length);
+//    s.BubbleSort(arr, length);
+//    printArray(arr, length);
 
     return 0;
 };

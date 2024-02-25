@@ -3,7 +3,7 @@
 //
 
 #include <iostream>
-#include "swap.h"
+#include "Swap.h"
 
 using namespace std;
 
@@ -29,7 +29,7 @@ public:
     };
 private:
     static void minHeap(int *arr, int current, int size) {
-        if (checkPoint(arr)) {
+        if (pointIsNull(arr)) {
             return;
         }
 

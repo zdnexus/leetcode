@@ -9,11 +9,14 @@
 
 using namespace std;
 
-static bool checkPoint(int *p) {
+static bool pointIsNull(int *p) {
     return p == NULL;
 }
 
 static void cinArr(int *arr, int length) {
+    int length2 = sizeof(arr) / sizeof(arr[0]);
+    cout << length << endl;
+    cout << length2 << endl;
     srand((unsigned int) time(0));
     for (int i = 0; i < length; i++) {
         arr[i] = rand() % 10 + 1;

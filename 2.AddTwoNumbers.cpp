@@ -2,7 +2,7 @@
 // Created by 钟东 on 2017/1/4 0004.
 //
 #include<iostream>
-#include "arrToList.h"
+#include "ArrToList.h"
 
 using namespace std;
 
@@ -16,45 +16,49 @@ public:
             return l2;
         } else if (l2 == NULL) {
             return l1;
-        } else {
-            struct ListNode *list = NULL;//链表表头
-            struct ListNode *currentNode = NULL;//追踪节点
-            int numExtra = 0;//相加超出10的数字
-            while (l1 && l2) {
-                int sum = l1->val + l2->val + numExtra;
-                struct ListNode *newNode = new ListNode(sum % 10);
-                numExtra = sum / 10;
-                if (list == NULL) {
-                    list = newNode;
-                } else {
-                    currentNode->next = newNode;
-                }
-                currentNode = newNode;
-                l1 = l1->next;
-                l2 = l2->next;
-            }
-            while (l1) {
-                int sum = l1->val + numExtra;
-                struct ListNode *newNode = new ListNode(sum % 10);
-                numExtra = sum / 10;
-                currentNode->next = newNode;//这里的currentNode绝对不是空指针
-                currentNode = newNode;
-                l1 = l1->next;
-            }
-            while (l2) {
-                int sum = l2->val + numExtra;
-                struct ListNode *newNode = new ListNode(sum % 10);
-                numExtra = sum / 10;
-                currentNode->next = newNode;//这里的currentNode绝对不是空指针
-                currentNode = newNode;
-                l2 = l2->next;
-            }
-            if (numExtra) {
-                struct ListNode *newNode = new ListNode(numExtra);
+        }
+        // 链表表头
+        struct ListNode *list = NULL;
+        // 追踪节点
+        struct ListNode *currentNode = NULL;
+        // 相加超出10的数字
+        int numExtra = 0;
+
+        while (l1 && l2) {
+            int sum = l1->val + l2->val + numExtra;
+            struct ListNode *newNode = new ListNode(sum % 10);
+            numExtra = sum / 10;
+            if (list == NULL) {
+                list = newNode;
+            } else {
                 currentNode->next = newNode;
             }
-            return list;
+            currentNode = newNode;
+            l1 = l1->next;
+            l2 = l2->next;
         }
+        while (l1) {
+            int sum = l1->val + numExtra;
+            struct ListNode *newNode = new ListNode(sum % 10);
+            numExtra = sum / 10;
+            currentNode->next = newNode;//这里的currentNode绝对不是空指针
+            currentNode = newNode;
+            l1 = l1->next;
+        }
+        while (l2) {
+            int sum = l2->val + numExtra;
+            struct ListNode *newNode = new ListNode(sum % 10);
+            numExtra = sum / 10;
+            currentNode->next = newNode;//这里的currentNode绝对不是空指针
+            currentNode = newNode;
+            l2 = l2->next;
+        }
+        if (numExtra) {
+            struct ListNode *newNode = new ListNode(numExtra);
+            currentNode->next = newNode;
+        }
+
+        return list;
     };
 
     //方法一(v2)

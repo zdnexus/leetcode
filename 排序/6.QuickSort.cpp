@@ -3,7 +3,7 @@
 //
 
 #include <iostream>
-#include "swap.h"
+#include "Swap.h"
 
 using namespace std;
 
@@ -14,7 +14,7 @@ public:
     //  空间复杂度：Log2N ~ LogN，
     //  不稳定排序
     static void QuickSort(int *arr, int length) {
-        if (checkPoint(arr)) {
+        if (pointIsNull(arr)) {
             return;
         }
 
